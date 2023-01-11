@@ -2,5 +2,4 @@
 data/**
 .vscode/launch.json
 .vscode/settings.json
-utils/__pycache__/__init__.cpython-310.pyc
-utils/__pycache__/preprocessing.cpython-310.pyc
+utils/__pycache__/*
