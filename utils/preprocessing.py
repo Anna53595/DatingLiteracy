@@ -2,15 +2,16 @@ import pandas as pd
 from pandas.api.types import CategoricalDtype
 
 
-def top_k_questions(keyword: str, k: int, questions_df: pd.DataFrame, data: pd.DataFrame) -> list[str]:
+def top_k_questions(keyword: str, k: int, questions_df: pd.DataFrame, data: pd.DataFrame, print_q=True) -> list[str]:
     """Extracts k most answered question labels of a given question keyword"""
     n_answers_per_question = data.notnull().sum(axis=0)[1:] # first column is question name (Unnamed: 0) => [1:] #TODO: check this
     questions_df = questions_df.join(n_answers_per_question.to_frame('n_answers'))
     
     key_questions = questions_df[questions_df.Keywords == keyword]
     sorted_key_questions = key_questions.sort_values(by=['n_answers'], ascending=False)
-    print('selected questions: ', sorted_key_questions['text'][:k].values)
-    return sorted_key_questions[:k].index.to_list()
+    if print_q:
+        print('selected questions: ', sorted_key_questions['text'][:k].values)
+    return sorted_key_questions[:k] #TODO change back .index.to_list()
 
 def get_categories(selected_questions: list[str], questions_df: pd.DataFrame, nonordinal_questions: set) -> tuple[dict, dict]:
     """extract unordered and ordered categories"""# TODO: können wir auch automatisch die nonordinalquestions erkennen?
