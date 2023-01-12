@@ -44,3 +44,11 @@ def preprocess(data: pd.DataFrame, unordered_categories={}, ordered_categories={
             feature_target_data[question] = feature_target_data[question].astype(cat_type)
 
     return feature_target_data
+
+def encode_train_test_df(encoder_feature, encoder_target, df_train:pd.DataFrame, df_test:pd.DataFrame, target:str = 'q212813')-> tuple:
+    X_train_encoded = encoder_feature.fit_transform(df_train.drop(target, axis=1))
+    y_train_encoded =  encoder_target.fit_transform(df_train[target])
+
+    X_test_encoded = encoder_feature.transform(df_test.drop(target, axis=1))
+    y_test_encoded = encoder_target.transform(df_test[target])
+    return X_train_encoded, y_train_encoded, X_test_encoded, y_test_encoded
