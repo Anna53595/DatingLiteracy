@@ -36,10 +36,6 @@ DatingLiteracy
 │   │   train.parquet
 │   │   test.parquet
 │ 
-└───utils
-│   │   preprocessing.py
-│   │   plotting.py
-│ 
 └───models
     │   nv_downsampled_trn_set.joblib
     │   rf_downsampled_trn_set.joblib
