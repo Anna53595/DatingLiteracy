@@ -28,7 +28,7 @@ DatingLiteracy
 │   README.md
 │   data_preprocessing.ipynb    
 │   data_anylsis.ipynb
-│   evaluation_testset.ipynb
+│   evaluation.ipynb
 │
 └───data
 │   │   question_data.csv
@@ -49,7 +49,7 @@ DatingLiteracy
 - Baseline Model: Naive Bayes
 - Random Forest Model with HPO
 - Evaluation 
-### ```evaluation_testset.ipynb```
+### ```evaluation.ipynb```
 - Confusion Matrix, etc. on test set
 
 
